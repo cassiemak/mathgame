@@ -3,9 +3,15 @@
 <head>
   <title>Fun 10 Second Math Game</title>
 
-  <script type="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script type="js/game.js"></script>
-  
+  <!-- Jquery Library -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="js/game.js"></script>
+
+  <!-- Jquery UI Library -->
+  <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+
+  <!-- Bootstrap Library -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/custom.css">
 </head>
@@ -13,36 +19,39 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="title">
+      <div class="title col-xs-8 col-xs-offset-2 ">
         <h1>You Have 10 Seconds for Math!</h1>
       </div>
     </div>
+    <div class="row" id="slideBar">
+    </div>
     <div class="row">
-      <div class="mathgame">
-        <div class="col-xs-8">
+      <div class="mathgame col-xs-8 col-xs-offset-2">
+        <div class="col-xs-6 question">
           1 + 1 = 
         </div>
-        <div class="col-xs-4">
+        <div class="col-xs-2">
           <input class="answer" value="0"> 
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-4">
-        <ul>
-          <li><input type="checkbox"> Addition </li>
-          <li><input type="checkbox"> Subtraction </li>
-          <li><input type="checkbox"> Mutiplication </li>
-          <li><input type="checkbox"> Division </li>
-        </ul>
-      </div>
-      <div class="col-xs-3">
-        <button type="button" class="btn btn-success">Play</button>
-      </div>
-      <div class="col-xs-5">
-        Timer
+      <div class="col-xs-8 col-xs-offset-2">
+        <div class="col-xs-4">
+          <ul>
+            <li><input type="checkbox"> Addition </li>
+            <li><input type="checkbox"> Subtraction </li>
+            <li><input type="checkbox"> Mutiplication </li>
+            <li><input type="checkbox"> Division </li>
+          </ul>
+        </div>
+        <div class="col-xs-4">
+          <button type="button" class="btn btn-success play">Play</button>
+        </div>
+        <div class="col-xs-4 timer">
+        TIMER
+        </div>
       </div>
     </div>
-  </div>
 </body>
-</html>>
+</html> 
