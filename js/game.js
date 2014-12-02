@@ -1,7 +1,7 @@
 $(document).ready(function(){
   'use strict';
   var timeLeft = 10;
-
+  var currentQuestion; 
 
   var addition = function(num1, num2){
     var sum = num1 + num2;
@@ -22,37 +22,66 @@ $(document).ready(function(){
     var divide = num1 / num2;
   };
 
-// function that generate the questions
+  //function that generate the questions
   var generateQ = function(){
-    $(".firstNum") = math.random();
-    var number1 = $(".firstNum");
-    $(".secondNUm") = math.random();
-    var number2 = $(".secondNUm");
+    var multipler = 10;
+    var random1 = Math.random()*multipler;
+    random1 = random1.toFixed(0);
+    var random2 = Math.random()*multipler;
+    random2 = random2.toFixed(0);
+    var randomQuestion = random1 + " + " + random2 + " ="; 
+    var randomAnswer = Number(random1) + Number(random2);
+    var random = {question: randomQuestion, answer: randomAnswer}; 
+    return random;
+  };
 
-  }
+// Compare input and correct answer function
+  var check = function(input1 , input2){
+    if(input1 == input2){
+      timeLeft++;
+      currentQuestion = generateQ();
+      $(".question").text(currentQuestion.question);
+      console.log(currentQuestion);
+    }
 
-// set a function that countdown every second, 
+  };
+
+  // set a function that countdown every second, 
   var countdown10 = function(){
     setInterval(decrementTimer, 1000);
   };
   function decrementTimer (){
     // console.log(timeLeft);
+    if (timeLeft<0){
+      $("h1").text("GAME OVER!");
+      $("input").attr("disabled", "disabled");
+    }
+    else {
     $(".timer").text(timeLeft);
     timeLeft--;
+    }
   }
 
-// click button to activate function
-  $(".play").click(function(){
-    countdown10();
-    // console.log("OK!");
+  // check answers whenever you key up
+  $(".answer").keyup(function(){
+        console.log("keyup!")
+        console.log(currentQuestion);
+        check($(".answer").val(), currentQuestion.answer);
   })
+
+  // click button to activate/ initialize game function (only first question)
+  $(".play").click(function(){
+      countdown10();
+      // console.log("clciked!");
+      currentQuestion = generateQ();
+      $(".question").text(currentQuestion.question);
+      console.log(currentQuestion);
+    }
+  );
 
   $(function(){
       $("#slideBar").slider();
   });
-
-  // 
-
 
 // Closing.ready function
 });
