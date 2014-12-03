@@ -1,26 +1,50 @@
-h1{
-  /*font: underline; */
-  text-align: center;
+body {
+  background-color: rgba(154, 124, 228, 0.7);
+  font-family: Courier;
 }
 
-.mathgame {
-  font-size: 20px;
+.box {
+  background-color: white;
+  margin: 100px;
 }
-
 .row{
+  /*border: solid 2px;*/
   position: center center;
 }
 
-#slideBar {
-  padding: 20px;
+div {
+    /*border: solid 2px;*/
+    /*border-color: orange;*/
 }
 
+h1{
+  text-align: center;
+}
+
+.padding {
+  padding: 10px;
+}
+
+.mathgame {
+  font-size: 40px;
+  padding: 20px;
+  text-align: center;
+}
+
+#slideBar {
+  padding: 1px;
+}
+
+.numberLimit {
+  font-size: 20px;
+}
 .question{
   text-align: right;
 }
 
 input {
   text-align: left;
+  color: gray;
 }
 
 ul{
@@ -28,15 +52,60 @@ ul{
 }
 
 .play{
-  background-color: black;
   text-align: center;
-  height: 100px;
-  width: 100px;
   vertical-align: center;
+  /*x%  of videewpoint width, x% of div*/
+  font-size: 5vw; 
+  /*color: green;*/
+  /*background-color: black;*/
+}
+
+.play:hover{
+  color: green;
+}
+
+.centerized{
+  min-height: 100%;
+  min-height: 15vh;
+  display: flex;
+  align-items: center;
+}
+
+.score{
+
+}
+
+.answer {
+  text-align: center;
 }
 
 .timer {
-  /*font-size: 40px;*/
-  height: 200px;
-  width: 200px;
+  font-size: 100px;
+  font-style: bold;
+  text-align: center; 
+}
+
+.timeIcon{
+  font-size: 2vw; 
+}
+
+.timeIcon:hover{
+  color: green;
+}
+
+
+@media(max-width:767px){
+  .box{
+    margin: 1px;
+    margin-top: 20px;
+  }
+}
+
+@media(min-width:768px){
+}
+
+@media(min-width:992px){
+}
+
+@media(min-width:1200px){
 }

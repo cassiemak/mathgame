@@ -4,24 +4,7 @@ $(document).ready(function(){
   var currentQuestion; 
   var multipler = 10; 
 
-  var addition = function(num1, num2){
-    var sum = num1 + num2;
-    return sum;
-  };
 
-  var subtraction = function(num1, num2){
-    var minus = num1 - num2;
-    return minus;
-  };
-
-  var multiplication = function (num1, num2){
-    var multiple = num1 * num2;
-    return multiple;
-  };
-
-  var division = function (num1, num2){
-    var divide = num1 / num2;
-  };
 
   //function that generate the questions
   var generateQ = function(){
@@ -54,12 +37,13 @@ $(document).ready(function(){
   function decrementTimer (){
     // console.log(timeLeft);
     if (timeLeft<0){
-      $("h1").text("GAME OVER!");
+      $(".mathgame").text("GAME OVER!");
       $("input").attr("disabled", "disabled");
     }
     else {
-    $(".timer").text(timeLeft);
-    timeLeft--;
+      $(".timer").text(timeLeft);
+      timeLeft--;
+      console.log(timeLeft);
     }
   }
 
@@ -82,6 +66,7 @@ $(document).ready(function(){
     }
   );
 
+  // the slide bar that generates the number limit
   $(function(){
       $("#slideBar").slider({
         range: "min",
@@ -96,6 +81,27 @@ $(document).ready(function(){
         }
       });
   });
+
+
+  var addition = function(num1, num2){
+    var sum = num1 + num2;
+    return sum;
+  };
+
+  var subtraction = function(num1, num2){
+    var minus = num1 - num2;
+    return minus;
+  };
+
+  var multiplication = function (num1, num2){
+    var multiple = num1 * num2;
+    return multiple;
+  };
+
+  var division = function (num1, num2){
+    var divide = num1 / num2;
+  };
+
 
 // Closing.ready function
 });
