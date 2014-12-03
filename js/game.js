@@ -16,6 +16,7 @@ $(document).ready(function(){
     var randomQuestion = random1 + " + " + random2 + " ="; 
     var randomAnswer = Number(random1) + Number(random2);
     var random = {question: randomQuestion, answer: randomAnswer}; 
+    $(".answer").val("");
     return random;
   };
 
@@ -52,7 +53,7 @@ $(document).ready(function(){
         console.log("keyup!")
         console.log(currentQuestion);
         check($(".answer").val(), currentQuestion.answer);
-        $(".answer").val("");
+        // $(".answer").val("");
   })
 
   // click button to activate/ initialize game function (only first question)
