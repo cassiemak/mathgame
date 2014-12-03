@@ -2,6 +2,7 @@ $(document).ready(function(){
   'use strict';
   var timeLeft = 10;
   var currentQuestion; 
+  var multipler; 
 
   var addition = function(num1, num2){
     var sum = num1 + num2;
@@ -24,7 +25,7 @@ $(document).ready(function(){
 
   //function that generate the questions
   var generateQ = function(){
-    var multipler = 10;
+    // var multipler = 10; enabled slider
     var random1 = Math.random()*multipler;
     random1 = random1.toFixed(0);
     var random2 = Math.random()*multipler;
@@ -80,8 +81,20 @@ $(document).ready(function(){
   );
 
   $(function(){
-      $("#slideBar").slider();
+      $("#slideBar").slider({
+        range: "min",
+        value: 10,
+        min: 0,
+        max: 100, 
+        slide: function(event, ui){
+          multipler = ui.value;
+          console.log(ui.value);
+          console.log(multipler);
+          $("#sliderAmount").text(ui.value);
+        }
+      });
   });
 
 // Closing.ready function
 });
+

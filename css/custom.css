@@ -1,5 +1,9 @@
+h1{
+  /*font: underline; */
+}
+
+
 .row{
-  /*min-height: 30px;*/
   position: center center;
 }
 
