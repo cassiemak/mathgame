@@ -2,7 +2,7 @@ $(document).ready(function(){
   'use strict';
   var timeLeft = 10;
   var currentQuestion; 
-  var multipler; 
+  var multipler = 10; 
 
   var addition = function(num1, num2){
     var sum = num1 + num2;
@@ -68,6 +68,7 @@ $(document).ready(function(){
         console.log("keyup!")
         console.log(currentQuestion);
         check($(".answer").val(), currentQuestion.answer);
+        $(".answer").val("");
   })
 
   // click button to activate/ initialize game function (only first question)
@@ -75,6 +76,7 @@ $(document).ready(function(){
       countdown10();
       // console.log("clciked!");
       currentQuestion = generateQ();
+      $(".answer").val("");
       $(".question").text(currentQuestion.question);
       console.log(currentQuestion);
     }

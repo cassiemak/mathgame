@@ -1,28 +1,42 @@
 h1{
   /*font: underline; */
-}
-
-
-.row{
-  position: center center;
-}
-
-.timer {
-  font-size: 40px;
-}
-
-input {
-  text-align: left;
-}
-
-.question{
-  text-align: right;
+  text-align: center;
 }
 
 .mathgame {
   font-size: 20px;
 }
 
+.row{
+  position: center center;
+}
+
+#slideBar {
+  padding: 20px;
+}
+
+.question{
+  text-align: right;
+}
+
+input {
+  text-align: left;
+}
+
 ul{
-  text-decoration: none;
+  list-style-type: none;
+}
+
+.play{
+  background-color: black;
+  text-align: center;
+  height: 100px;
+  width: 100px;
+  vertical-align: center;
+}
+
+.timer {
+  /*font-size: 40px;*/
+  height: 200px;
+  width: 200px;
 }
