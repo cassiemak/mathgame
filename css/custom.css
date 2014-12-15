@@ -8,7 +8,7 @@ body {
   margin: 100px;
 }
 .row{
-  /*border: solid 2px;*/
+  /*border: solid 2px;*/ 
   position: center center;
 }
 
@@ -93,6 +93,10 @@ ul{
   color: green;
 }
 
+.ranking{
+  color:red;
+  font-family: times;
+}
 
 @media(max-width:767px){
   .box{

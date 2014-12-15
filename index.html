@@ -11,13 +11,13 @@
   <!-- Jquery UI Library -->
   <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
   <script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="js/serializeObject.js"></script>
 
   <!-- Bootstrap Library -->  
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
+  <!-- Style Sheet -->
   <link rel="stylesheet" type="text/css" href="css/custom.css">
-
 </head>
 
 <body>
@@ -26,7 +26,7 @@
       <!-- page title row -->
       <div class="row padding">
         <div class="title col-xs-8 col-xs-offset-2">
-          <h1 class="ranking">10 Seconds of Math</h1>
+          <h1 class="">10 Seconds of Math</h1>
         </div>
       </div>
       <!-- number limit row & slidebar -->
@@ -48,26 +48,33 @@
             ? =
           </div>
           <div class="col-xs-6">
-            <input class="answer col-xs-10" value="0"> 
+            <input class="answer col-xs-10" value="0" placeholder="0"> 
           </div>
         </div>
+      </div>
+      <div class="row padding">
+        <h1 class="ranking col-xs-8 col-xs-offset-2 text-center">
+        </h1>
       </div>
       <!-- the checkbox and timer row -->
       <div class="row padding">
         <div class="col-xs-8 col-xs-offset-2 centerized">
           <div class="col-xs-12 col-sm-6 checkbox">
-            <ul>
-              <li><input type="checkbox"> Add </li>
-              <li><input type="checkbox"> Subtract </li>
-              <li><input type="checkbox"> Mutiply </li>
-              <li><input type="checkbox"> Divide </li>
-              <li><input type="checkbox"> Powers </li>
-              <li><input type="checkbox"> Sq Roots </li>
-            </ul>
+            <form id="questionForm">
+              <ul>
+                <li><input name="questionTypes[]" type="checkbox" value="add"> Add </li>
+                <li><input name="questionTypes[]" type="checkbox" value="subtract"> Subtract </li>
+                <li><input name="questionTypes[]" type="checkbox" value="multiply"> Multiply </li>
+                <li><input name="questionTypes[]" type="checkbox" value="divide"> Divide </li>
+                <li><input name="questionTypes[]" type="checkbox" value="powers"> Powers </li>
+                <li><input name="questionTypes[]" type="checkbox" value="sqRoots"> Sq Roots </li>
+              </ul>
+            </form>
           </div>
           <div class="col-xs-12 col-sm-6 score centerized">
             <div class="col-xs-12 play timer centerized">
-              <span class="glyphicon glyphicon-play-circle centerized"></span> 
+              <span class="glyphicon glyphicon-play-circle centerized">
+              </span> 
               <!-- <img class="play img-responsive centerized"src="image/play.png"> -->
               <!-- <button type="button" class="btn btn-success play img-responsive centerized">Play</button> -->
             </div>
