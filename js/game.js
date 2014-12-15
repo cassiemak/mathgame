@@ -20,7 +20,7 @@ $(document).ready(function(){
     var randomAnswer = Number(num1) + Number(num2);
     var random = {question: randomQuestion, answer: randomAnswer}; 
     $(".answer").val("");
-    debugger
+    // debugger
     return random;
   };
 
@@ -57,31 +57,33 @@ $(document).ready(function(){
   };
 
   var squareRoot = function (num1){
-    num2 = num1 * num1
+    var num2 = num1 * num1
     var randomQuestion = "sqrt of " + num2; 
     var randomAnswer = num1;
     var random = {question: randomQuestion, answer: randomAnswer}; 
     $(".answer").val("");
+    // debugger
     return random;
   };
 
   //function that generate the questions
   var generateQ = function(){
     // var multipler = 10; enabled slider
-    var j = selected().length;
-    j++;
-    var i = Math.random()*j;
-    i = Math.floor(i);
-    var choice = selected();
-    // something wrong
-    var questionType = choice[i];
+    // var j = selected().length;
+    // // j++;
+    // var i = Math.random()*j;
+    // i = Math.floor(i);
+
+    var randomIndex = Math.floor((Math.random() * selected().length));
+
+    var questionType = selected()[randomIndex];
 
     var random1 = Math.random()*multipler;
     random1 = random1.toFixed(0);
     var random2 = Math.random()*multipler;
     random2 = random2.toFixed(0);
 
-    debugger
+    // debugger
 
     if(questionType == "add"){
       return addition(random1,random2);
@@ -121,9 +123,11 @@ $(document).ready(function(){
     function decrementTimer (){
     // console.log(timeLeft);
     if (timeLeft==0){
-      $(".timer").text(timeLeft);
-      $(".mathgame").text("GAME OVER! You have answewred " + correctAnswer + " correctly!");
-      postScore();
+      $(".timer").html('<span class="glyphicon glyphicon-play-circle centerized"></span>');
+      // $(".timer").text(timeLeft);
+      
+      $(".mathgame").text("GAME OVER! You have answered " + correctAnswer + " correctly!");
+      // postScore();
       $("input").attr("disabled", "disabled");
       clearInterval (interval);
     }
@@ -144,13 +148,13 @@ $(document).ready(function(){
   // click button to activate/ initialize game function (only first question)
   $(".play").click(function(){
       countdown10();
-      // console.log("clciked!");
+      // console.log("clicked!");
       correctAnswer = 0;
       currentQuestion = generateQ();
       $(".answer").val("");
-      debugger
+      // debugger
       $(".question").text(currentQuestion.question);
-      debugger
+      // debugger
       console.log(currentQuestion);
     }
   );
@@ -160,10 +164,11 @@ $(document).ready(function(){
     $.ajax({
       type: 'POST',
       url: 'https://stark-eyrie-2329.herokuapp.com/leaders/create',
-      data: {'name': prompt ("What's your name?"),
+      data: {'name': prompt("What's your name?"),
             'score': correctAnswer},
-      success: function(html){
-        $('.ranking').text("You're ranked top " + (html.ranking*100).toFixed(2) + "%");
+      success: function(response){
+        $('.ranking').text("You're ranked top " + (response.ranking*100).toFixed(2) + "%");
+        debugger
       },
       error: function(){}
     })
